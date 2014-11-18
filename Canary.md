@@ -6,6 +6,7 @@
     import pandas as pd
     import numpy as np
     import matplotlib.pyplot as plt
+    import matplotlib as mpl
     from scipy import stats
     import statsmodels.api as sm
     import scipy, scipy.stats
@@ -81,8 +82,8 @@ is saved (~10 MB).
 
     
     # Load data for large files
-    original_filename = '~/measurements.csv'
-    modified_filename = '~/measurements_modified.csv'
+    original_filename = '/Users/salasboni/Canary/measurements.csv'
+    modified_filename = '/Users/salasboni/Canary/measurements_modified.csv'
     
     df = getData(original_filename, modified_filename)
     df = df.set_index('Captured Time')
@@ -253,17 +254,13 @@ the only unit used for the measurements is cpm - counts per minute.
 
 
 
-    %matplotlib inline
+    #%matplotlib inline
     plt.figure()
     df.plot( x = 'Distance To Fukushima in Km', y = 'Value', style = 'o', label='All loaders')
     plt.xlabel( 'Distance To Fukushima in Km' )
     plt.ylabel( 'Value in CPM' )
     plt.axis( 'tight' )
     plt.show()
-
-
-![png](Canary_files/Canary_10_0.png)
-
 
 There is a sharp decrease in the radiation levels as the distance from the plant
 increases. Before doing ordinary least squares, we perform a box cox transform
