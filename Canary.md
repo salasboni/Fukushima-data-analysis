@@ -82,8 +82,8 @@ is saved (~10 MB).
 
     
     # Load data for large files
-    original_filename = '/Users/salasboni/Canary/measurements.csv'
-    modified_filename = '/Users/salasboni/Canary/measurements_modified.csv'
+    original_filename =  "/Users/" + os.getlogin() + "/Desktop/measurements.csv"
+    modified_filename =  "/Users/" + os.getlogin() + "/Desktop/measurements_modified.csv"
     
     df = getData(original_filename, modified_filename)
     df = df.set_index('Captured Time')
@@ -255,6 +255,7 @@ the only unit used for the measurements is cpm - counts per minute.
 
 
     %matplotlib inline
+    
     plt.figure()
     df.plot( x = 'Distance To Fukushima in Km', y = 'Value', style = 'o', label='All loaders')
     plt.xlabel( 'Distance To Fukushima in Km' )

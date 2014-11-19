@@ -60,8 +60,8 @@ def Fstat_pval(y,y_hat):
 
 
 # Load data for large files
-original_filename = '~/measurements.csv'
-modified_filename = '~/measurements_modified.csv'
+original_filename =  "/Users/" + os.getlogin() + "/Desktop/measurements.csv"
+modified_filename =  "/Users/" + os.getlogin() + "/Desktop/measurements_modified.csv"
 
 df = getData(original_filename, modified_filename)
 df = df.set_index('Captured Time')
@@ -75,7 +75,7 @@ df.plot( x = 'Distance To Fukushima in Km', y = 'Value', style = 'o', label='All
 plt.xlabel( 'Distance To Fukushima in Km' )
 plt.ylabel( 'Value in CPM' )
 plt.axis( 'tight' )
-namefig = '~/Desktop/Distance_vs_Radiation.png'
+namefig =  "/Users/" + os.getlogin() + '/Desktop/Distance_vs_Radiation.png'
 plt.savefig(namefig, bbox_inches='tight')
 
 # Box Cox transform on the data
@@ -90,7 +90,7 @@ df.plot( x = 'Distance To Fukushima in Km', y = 'Value transf', style = 'o', lab
 plt.xlabel( 'Distance To Fukushima in Km' )
 plt.ylabel( 'Value in CPM (box cox transform)' )
 plt.axis( 'tight' )
-namefig = '~/Desktop/Distance_vs_Radiation_Box_Cox.png'
+namefig = '/Users/' + os.getlogin() + '/Desktop/Distance_vs_Radiation_Box_Cox.png'
 plt.savefig(namefig, bbox_inches='tight')
 
 # OLS fit for radiation level as a function of distance from the plant
@@ -133,7 +133,7 @@ for key , gp in group_Loader_ID:
         plt.xlabel('Distance To Fukushima in Km')
         plt.ylabel('Value in CPM')
         plt.axis('tight')
-        namefig = '~/Desktop/Loader_ID_%s.png' % key
+        namefig = '/Users/' + os.getlogin() + 'Desktop/Loader_ID_%s.png' % key
         plt.savefig(namefig, bbox_inches = 'tight')
 
 
@@ -170,7 +170,7 @@ plt.scatter(centroids[:, 0], centroids[:, 1], marker = 'x',
 plt.title('K-means clustering on the dataset')
 plt.xlim(x_min, x_max)
 plt.ylim(y_min, y_max)
-namefig = '~/Desktop/Region_clusters.png'
+namefig = '/Users/' + os.getlogin() + '/Desktop/Region_clusters.png'
 plt.savefig(namefig, bbox_inches = 'tight')
 
 
@@ -196,11 +196,11 @@ for label in range(0,10):
     locs, labels = plt.xticks()
     plt.setp(labels, rotation=30)
     plt.title('Time series for Region %s'%label)
-    namefig = '~/Desktop/Region_%s_timeseries.png' % label
+    namefig = '/Users/' + os.getlogin() + 'Desktop/Region_%s_timeseries.png' % label
     plt.savefig(namefig, bbox_inches='tight')
 
     plt.figure()
     ts.hist()
     plt.title('Histogram for Region %s'%label)
-    namefig = '~/Desktop/Region_%s_histogram.png' % label
-    plt.savefig(namefig, bbox_inches='tight')
+    namefig = '/Users/' + os.getlogin() + 'Desktop/Region_%s_histogram.png' % label
+    plt.savefig(namefig, bbox_in ches='tight')
